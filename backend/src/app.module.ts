@@ -1,19 +1,11 @@
 import { Module } from "@nestjs/common";
-import { APP_INTERCEPTOR } from "@nestjs/core";
 import { SharedModule } from "@shared/shared.module";
 import { AppController } from "./app.controller";
-import { NetworkInterceptorModelService } from "@shared/services/network-interceptor-model.service";
-import { NetworkLoggerInterceptor } from "@shared/interceptors/network-logger.interceptor";
+import { AuthModule } from "./modules/auth/auth.module";
 
 @Module({
-  imports: [SharedModule],
+  imports: [SharedModule, AuthModule],
   controllers: [AppController],
-  providers: [
-    NetworkInterceptorModelService,
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: NetworkLoggerInterceptor,
-    },
-  ],
+  providers: [],
 })
 export class AppModule {}

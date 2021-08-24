@@ -5,11 +5,12 @@
  */
 
 // abstract entities
-export * from './timestamped.entity';
+export * from "./timestamped.entity";
 
-export * from './data-usage.entity';
+export * from "./data-usage.entity";
+export * from "./admin-user.entity";
 
-export * from './device.entity';
+export * from "./device.entity";
 
 // one-to-many entities
-export * from './listing.entity';
+export * from "./listing.entity";

@@ -6,6 +6,8 @@ import { DatabaseModule } from "@database/database.module";
 import { AccountUserTrackerModule } from "../account-user-tracker/account-user-tracker.module";
 import { ThrottleStorageService } from "@shared/services/throttler-storage.service";
 import { Global, Module } from "@nestjs/common";
+import { NetworkInterceptorModelService } from "@shared/services/network-interceptor-model.service";
+import { NetworkLoggerInterceptor } from "@shared/interceptors/network-logger.interceptor";
 
 @Global()
 @Module({
@@ -15,6 +17,11 @@ import { Global, Module } from "@nestjs/common";
     {
       provide: APP_INTERCEPTOR,
       useClass: ThrottlerInterceptor,
+    },
+    NetworkInterceptorModelService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: NetworkLoggerInterceptor,
     },
     ProfanityCheckService,
   ],
