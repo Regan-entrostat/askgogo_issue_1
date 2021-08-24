@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es2020",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "incremental": true,
+        "paths": {
+        "@config": ["src/config/index"],
+            "@shared/*": ["src/modules/shared/*"],
+            "@entities": ["src/modules/database/entities/index"],
+            "@entities/*": ["src/modules/database/entities/*"],
+            "@database/*": ["src/modules/database/*"],
+        }
+    }
+}
